@@ -26,14 +26,14 @@ Twemproxy docker image could be installed through one of following ways:
 
 ## <a name="4">Start</a>
 There are several of ways to start Twemproxy docker container as follows:
-- Start one container whose port 3306 is mapped to the host specific port such as 3306
-  - Examples: `docker run -p 3306:3306 --name twemproxy -d openestuary/twemproxy:0.4.1`
-- Start one container whose port 3306 is mapped to the host port dynamically
+- Start one container whose port 22153 is mapped to the host specific port such as 22153
+  - Examples: `docker run -p 22153:22153 --name twemproxy -d openestuary/twemproxy:0.4.1`
+- Start one container whose port 22153 is mapped to the host port dynamically
   - Examples:
     - Execute `docker run -P --name twemproxy -d openestuary/twemproxy:0.4.1` to start the container
     - Execute `docker port twemproxy` to check the dynamic port
-- Start one container which uses the specified host data diretory 
-  - Examples:`docker run -p 3306:3306 -v /host/datadir:/u01/my3306/data -d openestuary/twemproxy:0.4.1`
+- Start one container which uses the specified configuration, that is /etc/twemproxy.yml
+  - Examples:`docker run -p 22153:22153 -v /etc/twemproxy.yml:/etc/twemproxy.yml -d openestuary/twemproxy:0.4.1`
 
 By default, the docker container only has 10G disk size. 
 As for more examples, please refer to [start.sh](https://github.com/open-estuary/packages/blob/master/docker_apps/twemproxy/start.sh).
